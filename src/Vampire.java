@@ -1,10 +1,16 @@
 import java.util.List;
 
+/**
+ * This is the child class vampire from the parent class horror character, I implemented the transformable interface.
+ * When the vampire is transformed the attack and flee methods both change.
+ */
 public class Vampire extends HorrorCharacter implements Transformable{
 
     private boolean transformed;
 
-
+    /**
+     *constructor
+     */
     Vampire(){
         super();
         vulnerabilities.add(Vulnerability.SUNLIGHT);
@@ -12,6 +18,9 @@ public class Vampire extends HorrorCharacter implements Transformable{
         transformed = false;
     }
 
+    /**
+     *attack method based off of current transformation
+     */
     @Override
     public void attack(){
         if(!transformed) {
@@ -22,6 +31,9 @@ public class Vampire extends HorrorCharacter implements Transformable{
         }
     }
 
+    /**
+     *flee method based off of current transformation
+     */
     @Override
     public void flee(){
         if(!transformed) {
@@ -32,6 +44,9 @@ public class Vampire extends HorrorCharacter implements Transformable{
         }
     }
 
+    /**
+     *transformation method
+     */
     public void transform(){
         if(transformed){
             transformed = false;
@@ -43,6 +58,9 @@ public class Vampire extends HorrorCharacter implements Transformable{
         }
     }
 
+    /**
+     *returns monster type
+     */
     @Override
     public String getMonsterType(){
         return "vampire";

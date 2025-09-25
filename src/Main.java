@@ -3,6 +3,11 @@ import java.util.Scanner;
 //TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
 // click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
 public class Main {
+    /**
+     *My main program prompts you to create and name a monster.
+     * HorrorCharacter is created as null to start, but when user chooses what monster they'd like it uses
+     * polymorphism to create that specific monster.
+     */
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
         int choice = 0;
@@ -31,6 +36,9 @@ public class Main {
                 }
                 System.out.println("You have created a " + monster.getMonsterType() + " named " + monster.getName());
 
+                /**
+                 * Based on the monster the user chose it asks you what actions you want to perform, then executes.
+                 */
                 while(choice2 != 4) {
                     System.out.println("What would you like to do with your character?");
                     System.out.println("1. Attack");
@@ -64,7 +72,12 @@ public class Main {
 
         }
 
-        //for character selection
+    /**
+     * This method is for creating a character. I created it into a method to be called in case the user inputted an
+     * invalid character
+     * @param scanner (Takes the scanner declared in the main)
+     * @return c (This return the choice the user chose)
+     */
     public static int characterSelect(Scanner scanner){
         int c = 0;
 

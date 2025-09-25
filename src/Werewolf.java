@@ -1,15 +1,25 @@
 import java.util.List;
 
+/**
+ * This is the child class werewolf from the parent class horror character, I implemented the transformable interface.
+ * When the werewolf is transformed the attack and flee methods both change.
+ */
 public class Werewolf extends HorrorCharacter implements Transformable{
 
     private boolean transformed;
 
+    /**
+     *constructor
+     */
     Werewolf(){
         super();
         addVulnerability(Vulnerability.SILVER);
         transformed = false;
     }
 
+    /**
+     *attack method based off of current transformation
+     */
     @Override
     public void attack(){
         if(!transformed) {
@@ -20,6 +30,9 @@ public class Werewolf extends HorrorCharacter implements Transformable{
         }
     }
 
+    /**
+     *flee method based off of current transformation
+     */
     @Override
     public void flee(){
         if(!transformed) {
@@ -30,6 +43,9 @@ public class Werewolf extends HorrorCharacter implements Transformable{
         }
     }
 
+    /**
+     *transformation method
+     */
     public void transform(){
         if(transformed){
             transformed = false;
@@ -41,6 +57,9 @@ public class Werewolf extends HorrorCharacter implements Transformable{
         }
     }
 
+    /**
+     *returns monster type
+     */
     @Override
     public String getMonsterType(){
         return "werewolf";
