@@ -2,33 +2,48 @@ import java.util.List;
 
 public class Werewolf extends HorrorCharacter implements Transformable{
 
-    private String name;
-    private int health;
-    public List<Vulnerability> vulnerabilities;
+    private boolean transformed;
 
-    Werewolf(String newName){
+    Werewolf(){
         super();
-        name = newName;
         addVulnerability(Vulnerability.SILVER);
+        transformed = false;
     }
 
     @Override
     public void attack(){
-        System.out.println("Werewolf has bit you");
+        if(!transformed) {
+            System.out.println("Werewolf has bit you");
+        }
+        else if(transformed){
+            System.out.println("Human has punched you.");
+        }
     }
 
     @Override
     public void flee(){
-        System.out.println("Werewolf has ran away");
+        if(!transformed) {
+            System.out.println("Werewolf has ran away.");
+        }
+        if(transformed){
+            System.out.println("Human has scurried away.");
+        }
+    }
+
+    public void transform(){
+        if(transformed){
+            transformed = false;
+            System.out.println("You have transformed to a werewolf.");
+        }
+        if(!transformed){
+            transformed = true;
+            System.out.println("You have transformed into a human.");
+        }
     }
 
     @Override
-    public int vulnerabilityBehavior(String opposingAttackType){
-        int penalty = 0;
-        if(opposingAttackType.equalsIgnoreCase("silver")){
-            penalty = 1;
-        }
-
-        return penalty;
+    public String getMonsterType(){
+        return "werewolf";
     }
+
 }

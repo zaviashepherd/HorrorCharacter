@@ -4,7 +4,7 @@ import java.util.List;
 public abstract class HorrorCharacter {
 
     //enum for horror character weaknesses
-    public enum Vulnerability{
+    protected enum Vulnerability{
         FIRE,
         SUNLIGHT,
         SILVER,
@@ -18,9 +18,9 @@ public abstract class HorrorCharacter {
 
     //constructor w/o arguments
     public HorrorCharacter(){
-        String name = "name";
-        int health = 100;
-        List<Vulnerability> vulnerabilities = new ArrayList<>();
+        this.name = "name";
+        this.health = 100;
+        this.vulnerabilities = new ArrayList<>();
     }
 
     //getter and setter for vulnerabilities
@@ -64,13 +64,14 @@ public abstract class HorrorCharacter {
 
     }
 
-    //returning an int for future use to be handled in the main program, if vulnerability is present in battle with opponent then
-    //there will be penalty of 1 and return it ot the main program to handle to increases attack damage coming from opponent
-    public int vulnerabilityBehavior(String opposingAttackType){
-        int penalty = 0;
+    public void transform(){
 
-        return penalty;
     }
+
+    public String getMonsterType(){
+        return "Horror Character";
+    }
+
 
     public String toString(){
         String s = "";

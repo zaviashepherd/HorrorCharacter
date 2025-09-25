@@ -1,13 +1,9 @@
 import java.util.List;
 
-public class Zombie extends HorrorCharacter implements Transformable{
-    private String name;
-    private int health;
-    public List<Vulnerability> vulnerabilities;
+public class Zombie extends HorrorCharacter{
 
-    Zombie(String newName){
+    Zombie(){
         super();
-        name = newName;
         addVulnerability(Vulnerability.FIRE);
     }
 
@@ -21,13 +17,13 @@ public class Zombie extends HorrorCharacter implements Transformable{
         System.out.println("The zombie crawled away");
     }
 
-    @Override
-    public int vulnerabilityBehavior(String opposingAttackType){
-        int penalty = 0;
-        if(opposingAttackType.equalsIgnoreCase("fire")){
-            penalty = 1;
-        }
-
-        return penalty;
+    public void transform(){
+        System.out.println("Zombies can't transform");
     }
+
+    @Override
+    public String getMonsterType(){
+        return "zombie";
+    }
+
 }
